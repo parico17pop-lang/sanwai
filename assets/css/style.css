@@ -37,8 +37,8 @@ a:hover{text-decoration:underline}
 .has-sub{position:relative}
 .sub{position:absolute;inset:auto auto auto 0;top:100%;background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px 0;list-style:none;min-width:220px;display:none;box-shadow:0 10px 30px rgba(0,0,0,.08)}
 .sub a{display:block;padding:8px 12px}
-.has-sub:focus-within .sub,
-.has-sub:hover .sub{display:block}
+/* PCでは hover したときだけ開く */
+.has-sub:hover .sub { display: block; }
 .hero{position:relative;overflow:hidden;background:#0b3d15;color:#fff}
 .hero img{width:100%;height:56vh;object-fit:cover;opacity:.65;filter:grayscale(20%) contrast(110%)}
 .hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:16px}
@@ -102,4 +102,11 @@ a:hover{text-decoration:underline}
   .has-sub .sub{position:static;display:none;border:0;box-shadow:none;padding:0;margin:8px 0 0}
   .has-sub.open .sub{display:block}
   .btn.ghost{color:#000;border-color:#ddd}
+}
+/* PCでは sub-toggle を非表示 */
+.sub-toggle { display: none; }
+
+/* モバイル幅のときだけ表示 */
+@media (max-width: 680px) {
+  .sub-toggle { display: block; }
 }
